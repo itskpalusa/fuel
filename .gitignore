@@ -1,0 +1,12 @@
+# ONLY SYNC THESE FILES
+# If you need something to be synced to the git repo, place it here!
+
+!/app/classes/views/*
+!/app/classes/controllers/groupproject.php
+!/app/classes/model/*
+
+# Ignore everything else:
+/app/*
+/core/*
+/packages/*
+/vendor/*
