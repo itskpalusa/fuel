@@ -1,12 +1,34 @@
 # ONLY SYNC THESE FILES
 # If you need something to be synced to the git repo, place it here!
 
-!app/classes/views/*
-!app/classes/controller/groupproject.php
-!app/classes/model/*
+### Ignore everything ###
+# but do not ignore the .gitignore file
+!.gitignore
 
-# Ignore everything else:
-app/*
-core/*
-packages/*
-vendor/*
+!app/classes/controller/groupproject.php
+
+app/classes/controller
+app/classes/presenter
+app/classes/model
+
+app/cache/
+app/config/
+app/config/
+app/lang/
+app/logs/
+app/migrations/
+app/modules/
+app/tasks/
+app/tests/
+app/themes/
+app/tmp/
+app/views/eastwest/
+app/views/home/
+app/views/welcome/
+app/views/template.php
+app/bootstrap.php
+
+
+core/
+packages/
+vendor/
