@@ -1,7 +1,7 @@
 <?php
 class Controller_m1 extends Controller_Template
 {
-
+    public $template = 'm1_template';
 	public function action_index()
 	{
         $data = array();
