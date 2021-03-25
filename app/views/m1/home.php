@@ -8,10 +8,6 @@ the other pages on the site. -->
 
 <body>
 
-    <header>Goretex Professionals LLC<img
-            src='https://i.pinimg.com/originals/ca/57/5b/ca575bc595713822b92880db4219881a.png' alt='logo' width='32'>
-    </header>
-
     <div id="content">
 
         <div id=welcome>

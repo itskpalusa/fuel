@@ -79,9 +79,9 @@
                         echo "<p>&nbsp</p>";
                     }
         ?>
-                    </select>
-                    </form>
-                    </td>
+        </select>
+        </form>
+        </td>
         <?php
                 }
                 echo "</tr>";
@@ -101,37 +101,36 @@
 
         <script type="text/javascript">
         // In script tag, check if there's a change. Call this function
-          function dupeCheck() {
+        function dupeCheck() {
             table = document.getElementById("colorstable");
-            let value;  //Fill valueArray with up to the 10 available colors
+            let value; //Fill valueArray with up to the 10 available colors
             let valueArray = [];
             // Loop over table rows and get the first cell to access the select element
             // and the option that's currently selected
             // Theoretically, the array should change each time this function is called
             // Right now it isn't.
-            for(let i = 0; i < table.rows.length; i++) {
-              value = document.getElementById("color" + i)[0].value;
-              valueArray.push(value);
-              console.log(value);
+            for (let i = 0; i < table.rows.length; i++) {
+                value = document.getElementById("color" + i)[0].value;
+                valueArray.push(value);
+                console.log(value);
             }
             console.log(valueArray);
             let dupeArray = [];
             // Fill dupeArray with valueArray and check for duplicates as it's filled
-            for(var color in valueArray) {
-              if(dupeArray.includes(color)) {
-                document.write("Colors must be different.");
-              }
-              dupeArray.push(color);
+            for (var color in valueArray) {
+                if (dupeArray.includes(color)) {
+                    document.write("Colors must be different.");
+                }
+                dupeArray.push(color);
             }
-          }
-
+        }
         </script>
 
         <!-- second table -->
         <?php if (isset($_POST['rowcols'], $_POST['numcolor'])) { ?>
-            <div id=table2>
-                <table id=colorstable class=table2>"
-                    <?php
+        <div id=table2>
+            <table id=colorstable class=table2>"
+                <?php
                     //loop over rows
                     for ($i = 0; $i <= $rows; $i++) {
                         echo "<tr>";
@@ -139,7 +138,7 @@
                         for ($j = 0; $j <= $cols; $j++) {
                             echo "<td>";
                             if($i == 0){ //top row
-                                if($j == 0){ //upper-leftmost cell is empty 
+                                if($j == 0){ //upper-leftmost cell is empty
                                     echo "<p>&nbsp</p>";
                                 } else {
                                     echo "<p>" . chr($j + 64) . "</p>";
@@ -152,19 +151,19 @@
                         echo "</tr>";
                     }
                     ?>
-                </table>
-            </div>
+            </table>
+        </div>
         <?php } ?>
 
         <!-- printable view button -->
         <?php if (isset($_POST['rowcols'], $_POST['numcolor'])) { ?>
-            <div id=printButton>
-                <form action='link to print view' method=get>
-                    <input type=hidden id=rowcols name=rowcols value=$rows>
-                    <input type=hidden id=numcolor name=numcolor value=$numcolor>
-                    <input type=submit value="Printable View">
-                </form>
-            </div>
+        <div id=printButton>
+            <form action='link to print view' method=get>
+                <input type=hidden id=rowcols name=rowcols value=$rows>
+                <input type=hidden id=numcolor name=numcolor value=$numcolor>
+                <input type=submit value="Printable View">
+            </form>
+        </div>
         <?php } ?>
     </div>
 
