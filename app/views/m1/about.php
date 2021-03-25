@@ -9,28 +9,36 @@ the other pages on the site. -->
 
 <body>
 
-    <div id=members>
-      <div id=column>
-        <div id=person>
-          <img src="https://i.ibb.co/kXYRVy5/maria.png" alt="drawing of maria">
-          <div id=bio><p>Maria is a 3rd year Computer Science student at CSU. She is currently a Data Analyst Intern for the College of Veterinary Medicine and Biomedical Sciences, and is a TA for Introduction to Python Programming. In her free time she is an active member of Alpha Phi Omega, a co-ed service fraternity where she regularly volunteers around the Fort Collins community.</p></div>
-        </div>
-        <div id=person>
-          <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png" alt="name">
-          <div id=bio><p>Duis a massa vel tellus posuere cursus. Sed pulvinar turpis sed bibendum interdum. Nulla congue eu dui at congue. Maecenas convallis dictum nibh, eget fringilla enim posuere vitae. Duis convallis nisl risus, eu dictum leo tristique vitae. Quisque sagittis congue tellus id volutpat. Vivamus id ultrices nunc, vel molestie urna. </p></div>
+  <div id=members>
+    <div id=column>
+      <div id=person>
+        <img src="https://i.ibb.co/CM9jPYC/maria-2.jpg" alt="drawing of maria">
+        <div id=bio>
+          <p>Maria is a 3rd year Computer Science student at CSU. She is currently a Data Analyst Intern for the College of Veterinary Medicine and Biomedical Sciences, and is a TA for Introduction to Python Programming. In her free time she is an active member of Alpha Phi Omega, a co-ed service fraternity where she regularly volunteers around the Fort Collins community.</p>
         </div>
       </div>
-      <div id=column>
-        <div id=person>
-          <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png" alt="name">
-          <div id=bio><p>Duis a massa vel tellus posuere cursus. Sed pulvinar turpis sed bibendum interdum. Nulla congue eu dui at congue. Maecenas convallis dictum nibh, eget fringilla enim posuere vitae. Duis convallis nisl risus, eu dictum leo tristique vitae. Quisque sagittis congue tellus id volutpat. Vivamus id ultrices nunc, vel molestie urna. </p></div>
-        </div>
-        <div id=person>
-          <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png" alt="name">
-          <div id=bio><p>Duis a massa vel tellus posuere cursus. Sed pulvinar turpis sed bibendum interdum. Nulla congue eu dui at congue. Maecenas convallis dictum nibh, eget fringilla enim posuere vitae. Duis convallis nisl risus, eu dictum leo tristique vitae. Quisque sagittis congue tellus id volutpat. Vivamus id ultrices nunc, vel molestie urna. </p></div>
+      <div id=person>
+        <img src="https://avatars.githubusercontent.com/u/28467085?s=460&u=4b232c1893212071b1e16e267b239b67b854aa66&v=4" alt="Karthik Palusa">
+        <div id=bio>
+          <p>Karthik Palusa is a student at CSU studying Business Administration with a concentration in Computer Information Systems, with a minor in Computer Science. At the university, he also is the President of the CSU CIS Club, and helps run STAC for the College of Business. He has been in the world of web development since 2016 professionally. </p>
         </div>
       </div>
     </div>
+    <div id=column>
+      <div id=person>
+        <img src="https://i.ibb.co/tXhqJ9Y/Microsoft-Teams-image.png" alt="name">
+        <div id=bio>
+          <p>Will is a 3rd year Computer Science student at CSU. He is currently a Web Design Intern for Coach Ross Omniventures. In his free time he likes to run, play chess, frolic in the sun, and take long walks on the beach.</p>
+        </div>
+      </div>
+      <div id=person>
+        <img src="https://i.ibb.co/M7hGCwP/Microsoft-Teams-image-1.jpg" alt="name">
+        <div id=bio>
+          <p>Tyler is a student at Colorado State University studying computer science. He's interested in web development in the field of computer science and will be an intern for Nextworld working on their UI team this summer. In addition to computer science, Tyler is a member of the CSU Concert Band as a trombonist. One of his favorite things to do in his free time is Rubik's Cubes. He also enjoys classic arcade games and spending time outside.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </body>
 
