@@ -3,6 +3,7 @@
 
 ### Ignore everything ###
 # but do not ignore the .gitignore file
+!.gitignore
 
 
 !app/classes/controller
