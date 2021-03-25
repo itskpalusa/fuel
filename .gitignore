@@ -3,23 +3,27 @@
 
 ### Ignore everything ###
 # but do not ignore the .gitignore file
-!.gitignore
-
 
 
 !app/classes/controller
 app/classes/presenter
 app/classes/model
 
-# Other assignment controllers
+# Other assignment controllers to be ignored
 app/classes/controller/eastwest.php
 app/classes/controller/home.php
 app/classes/controller/groupproject.php
 app/classes/controller/welcome.php
 
+# Other config to be ignored
+app/config/development
+app/config/production
+app/config/staging
+app/config/test
+app/config/config.php
+app/config/db.php
+
 app/cache/
-app/config/
-app/config/
 app/lang/
 app/logs/
 app/migrations/
