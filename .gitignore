@@ -6,10 +6,16 @@
 !.gitignore
 
 !app/classes/controller/groupproject.php
+app/classes/controller/groupproject.php
+app/classes/controller/welcome.php
 
-app/classes/controller
+!app/classes/controller
 app/classes/presenter
 app/classes/model
+
+# Other assignment controllers
+app/classes/controller/eastwest.php
+app/classes/controller/home.php
 
 app/cache/
 app/config/
