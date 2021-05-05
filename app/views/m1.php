@@ -4,21 +4,26 @@
     </title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="$this->template->css">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+
     <style>
     body {
-        background-color: #F4F5EB;
-        font-family: Arial, Helvetica, sans-serif;
         margin: auto;
-        align-content: center;
         width: 100%;
-        max-width: 1200px;
+    }
+
+    .navbar-custom {
+        background-color: 59D195;
     }
 
     nav {
-        background-color: transparent;
+        background-color: #59D195;
         width: 100%;
     }
 
+    /*
     nav ul {
         list-style-type: none;
         margin: 0;
@@ -44,10 +49,9 @@
 
     nav a:hover {
         background-color: #DE7846;
-    }
+    } */
 
     header {
-        background-color: #59D195;
         color: #F4F5EB;
         font-size: 36px;
         padding: 24px;
@@ -74,7 +78,7 @@
     #content {
         margin: auto;
         padding: 10px;
-        width: 50%;
+
     }
 
     #contact {
@@ -189,7 +193,6 @@
     }
 
     p {
-        color: #BF4F50;
         font-size: 16px;
     }
 
@@ -198,12 +201,10 @@
         bottom: 0;
         left: 0;
         right: 0;
-        color: #F4F5EB;
         padding: 6px;
         position: absolute;
         text-align: center;
         margin: 0 auto;
-        max-width: 1200px;
     }
     </style>
 
@@ -211,21 +212,35 @@
 
 <body>
 
-    <nav>
-        <ul>
-            <li><a href="https://cs.colostate.edu:4444/~kpalusa/m1/">Home</a></li>
-            <li><a href="https://cs.colostate.edu:4444/~kpalusa/m1/index/m1/about.php">About</a></li>
-            <li><a href="https://cs.colostate.edu:4444/~kpalusa/m1/index/m1/colorGenerator.php">Color Generator</a>
-            </li>
-        </ul>
+    <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
+        <a class="navbar-brand" href="https://cs.colostate.edu:4444/~kpalusa/m1/">Goretex Professionals LLC<img
+                src='https://i.pinimg.com/originals/ca/57/5b/ca575bc595713822b92880db4219881a.png' alt='logo'
+                width='32'></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="https://cs.colostate.edu:4444/~kpalusa/m1/">Home </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://cs.colostate.edu:4444/~kpalusa/m1/index/m1/about.php">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"
+                        href="https://cs.colostate.edu:4444/~kpalusa/m1/index/m1/colorGenerator.php">Color
+                        Generator</a>
+                </li>
+            </ul>
+        </div>
     </nav>
 
-    <header>Goretex Professionals LLC<img
-            src='https://i.pinimg.com/originals/ca/57/5b/ca575bc595713822b92880db4219881a.png' alt='logo' width='32'>
-    </header>
 
     <main>
         <?php echo $content ?>
     </main>
 
+    <footer>Copyright "GoreTex Professionals LLC" 2021</footer>
 </body>

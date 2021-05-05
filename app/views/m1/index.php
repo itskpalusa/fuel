@@ -11,16 +11,18 @@ the other pages on the site. -->
     <header>Goretex Professionals LLC<img
             src='https://i.pinimg.com/originals/ca/57/5b/ca575bc595713822b92880db4219881a.png' alt='logo' width='32'>
     </header>
-
-    <div id="content">
-
-        <div id=welcome>
-            <h1>Outstanding Designers & Website Developers</h1>
-            <h2>Our team has been crafting beautiful websites since 2021. We create sites that are lightning fast and
-                tailored to your needs.</h2>
+    <div>
+        <div class="jumbotron">
+            <h1 class="display-4">Hello, world!</h1>
+            <div id="welcome">
+                <h1>Outstanding Designers & Website Developers</h1>
+                <h2>Our team has been crafting beautiful websites since 2021. We create sites that are lightning fast
+                    and
+                    tailored to your needs.</h2>
+            </div>
         </div>
 
-        <div id=contact>
+        <div id="contact">
             <!-- the email doesn't get sent anywhere -->
             <form action="home.php" method="post">
                 <label for="email">
@@ -36,7 +38,6 @@ the other pages on the site. -->
     }
     ?>
     </div>
-    <footer>Copyright "GoreTex Professionals LLC" 2021</footer>
 </body>
 
 </html>
