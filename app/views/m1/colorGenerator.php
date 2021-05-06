@@ -6,23 +6,17 @@
   // Function to change background color of cell based on radio button that's selected
   function fillColors(event) {
       console.log("fillColors");
+      console.log(this.id);
+      //array that contains the coordinats. [0] is the row [1] is the column
+      let coordinates = this.id.split(",");
   }
 
-  // Add event listeners to all <td>s in bottom table to know when they are clicked.
-  // All <td> in that table have the class .coordinate for easy access
-  function createEvents() {
-     let cells = document.querySelectorAll("td");
-     for(let i = 0; i < cells.length; i++) {
-         cells[i].addEventListener("click", function() {
-            console.log(":(");
-         });
-     }
-  }
+  $("#color-table").on("click", "td", fillColors);
 
   // In select tag, check if there's a change. Call this function with ID of the option that was selected
   function dupeCheck(oldOption, newOption, optionID, selectID) {
       // Loop over table rows, looking for an option that matches the one that was selected
-      let table = document.getElementById("colorstable");
+      let table = document.getElementById("select-color");
       for(let i = 0; i < table.rows.length; i++) {
           let id = "color" + i;
           let value = document.getElementById(id).value;
@@ -87,7 +81,7 @@
             $datums = array();
             $leftColID = 0;
             $rightColID = 0;
-            echo "<table id=colorstable>";
+            echo "<table id='select-color' class='colorstable'>";
             //loop over rows
             for ($i = 0; $i < $numcolor; $i++) {
                 echo "<tr>";
@@ -138,7 +132,7 @@
         <!-- second table -->
         <?php if (isset($_POST['rowcols'], $_POST['numcolor'])) { ?>
         <div id=table2>
-            <table id=colorstable class=table2>"
+            <table id="color-table" class="colorstable table2"><br>
                 <?php
                     //loop over rows
                     for ($i = 0; $i <= $rows; $i++) {
@@ -150,30 +144,24 @@
                                 // Uper left cell isn't used so it doesn't get an id
                                 if($j == 0 && $i == 0) {
                                     echo "<th>";
+                                    echo "<p>&nbsp</p>";
                                 }
                                 else {
                                     //top row ids are column coordinates
                                     echo "<th id='$alpha'>";
+                                    echo "<p>$alpha</p>";
                                 }
                             }
                             else {
                                 if($j == 0) {
                                     // Left column ids are row coordinates
                                     echo "<td id='$i'>";
+                                    echo "<p>$i</p>";
                                 }
                                 else {
                                     // id is coordinates: (row,column)
                                     echo "<td class='coordinate' id='($i,$alpha)'>";
                                 }
-                            }
-                            if($i == 0){ //top row
-                                if($j == 0){ //upper-leftmost cell is empty
-                                    echo "<p>&nbsp</p>";
-                                } else {
-                                    echo "<p>$alpha</p>";
-                                }
-                            } else if($j == 0) { // left col
-                                echo "<p>$i</p>";
                             }
                             if($i == 0) {
                                 echo "</th>";
@@ -188,9 +176,6 @@
             </table>
         </div>
         <?php } ?>
-        <script type="text/javascript">
-          createEvents();
-        </script>
 
         <!-- printable view button -->
         <?php if (isset($_POST['rowcols'], $_POST['numcolor'])) { ?>
