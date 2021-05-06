@@ -109,10 +109,17 @@
         border: 0;
         box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
         border-radius: 10px;
-    }
+        box-shadow: 0 5px #999;
+      }
 
     input[type=submit]:hover {
         background-color: #DE7846;
+    }
+
+    input[type=submit]:active {
+        background-color: #DE7846;
+        transform: translateY(2px);
+        box-shadow: 0 3px #666;
     }
 
     #members img {
