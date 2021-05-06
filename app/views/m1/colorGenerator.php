@@ -1,31 +1,67 @@
 <!DOCTYPE html>
-
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+  // Function to change background color of cell based on radio button that's selected
+  function fillColors(event) {
+      console.log("fillColors");
+  }
+
+  // Add event listeners to all <td>s in bottom table to know when they are clicked.
+  // All <td> in that table have the class .coordinate for easy access
+  function createEvents() {
+     let cells = document.querySelectorAll("td");
+     for(let i = 0; i < cells.length; i++) {
+         cells[i].addEventListener("click", function() {
+            console.log(":(");
+         });
+     }
+  }
+
+  // In select tag, check if there's a change. Call this function with ID of the option that was selected
+  function dupeCheck(oldOption, newOption, optionID, selectID) {
+      // Loop over table rows, looking for an option that matches the one that was selected
+      let table = document.getElementById("colorstable");
+      for(let i = 0; i < table.rows.length; i++) {
+          let id = "color" + i;
+          let value = document.getElementById(id).value;
+          // If the option isn'the same as the parameter and has the same value,
+          // outline cells in red, wait 1.5 seconds then remove outline and relace
+          // duplicate option with the old option
+          if(id != optionID && value == newOption) {
+              $("#" + optionID).addClass("outline");
+              $("#" + id).addClass("outline");
+              setTimeout(function() {
+                  $("#" + optionID).removeClass("outline");
+                  $("#" + id).removeClass("outline");
+                  let value = $("#"+optionID).attr('value');
+                  $("#" + selectID).val(oldOption);
+              }, 1500);
+              break;
+          }
+      }
+  }
+</script>
 
 <body>
 
     <div id=color-generator>
-        <form method=post>
-            <table>
-                <tr>
-                    <td>
-                        <label for=rowcols>
-                            <p>Number of rows/columns</p>
-                        </label>
-                        <input type=number name=rowcols id=rowcols>
-                    </td>
-                    <td>
-                        <label for=numcolor>
-                            <p>Number of colors</p>
-                        </label>
-                        <input type=number name=numcolor id=numcolor>
-                    </td>
-                    <td>
-                        <input type=submit value=Submit>
-                    </td>
-                </tr>
-            </table>
-        </form>
+      <form method=post>
+        <div class="enter-nums">
+          <label for="rowcols">
+              <p>Number of rows/columns</p>
+          </label>
+          <input type="number" name="rowcols" id="rowcols">
+        </div>
+        <div class="enter-nums">
+          <label for="numcolor">
+              <p>Number of colors</p>
+          </label>
+          <input type="number" name="numcolor" id="numcolor">
+        </div>
+        <input type="submit" value="Submit">
+      </form>
         <?php
         if (isset($_POST['rowcols'], $_POST['numcolor'])) {
             $rows = $_POST['rowcols'];
@@ -61,14 +97,23 @@
                     if ($j == 0) {
                         echo "<td class=leftcol id=leftcol" . $leftColID . ">";
                         $leftColID++;
+                        echo "<input type='radio' id='radio" . $i . "' name='color-select'>";
                         echo "<form method=post>";
                         $datum = "color" . $i;
                         echo "<div id=color_select>";
-                        echo "<select name=" . $datum . " id=" . $datum . " onchange='dupeCheck()'>";
+                        // This ugly thing is for getting the previously selected option. I set the value of the selectd option as the class to store it and use the value itself for updating
+                        echo "<select id=" . $datum . " class='select-color' onFocus=\"$(this).attr('class', $('option:selected', this).text());\" onChange=\"dupeCheck($(this).attr('class'), $(this).prop('value'), $(this).attr('id'), $(this).attr('id'))\">";
                         array_push($datums, $datum);
+                        $k = 0;
                         foreach ($optcolor as &$value) {
-                            echo "<option value=" . $value . ">" . $value . "</option>";
+                            if($k == 0) {
+                              echo "<option class='color-option' name=" . $value . " value=" . $value . " selected='selected'>" . $value . "</option>";
+                            }
+                            else {
+                              echo "<option class='color-option' name=" . $value . " value=" . $value . ">" . $value . "</option>";
+                            }
                             echo "</div>";
+                            $k++;
                         }
                         $first = array_shift($optcolor);
                         array_push($optcolor, $first);
@@ -87,44 +132,8 @@
                 echo "</tr>";
             }
             echo "</table>";
-
-            // USE JAVASCRIPT(???) TO CHECK FOR DUPLICATES
-            // Now, in the top table, each of the left column cells has a drop-down with
-            // 10 color names (red, orange, yellow, green, blue, purple, grey, brown, black,
-            // teal).  Order these in an intuitive way for the user.  Initially, a different
-            // color is selected in each drop down.  No two drop downs can select the same
-            // color at the same time (if this happens, revert the most recently changed drop
-            // down to the previous value that was selected.  Inform the user of this in a
-            // non-intrusive way (i.e. not an alert() ).
         }
         ?>
-
-        <script type="text/javascript">
-        // In script tag, check if there's a change. Call this function
-        function dupeCheck() {
-            table = document.getElementById("colorstable");
-            let value; //Fill valueArray with up to the 10 available colors
-            let valueArray = [];
-            // Loop over table rows and get the first cell to access the select element
-            // and the option that's currently selected
-            // Theoretically, the array should change each time this function is called
-            // Right now it isn't.
-            for (let i = 0; i < table.rows.length; i++) {
-                value = document.getElementById("color" + i)[0].value;
-                valueArray.push(value);
-                console.log(value);
-            }
-            console.log(valueArray);
-            let dupeArray = [];
-            // Fill dupeArray with valueArray and check for duplicates as it's filled
-            for (var color in valueArray) {
-                if (dupeArray.includes(color)) {
-                    document.write("Colors must be different.");
-                }
-                dupeArray.push(color);
-            }
-        }
-        </script>
 
         <!-- second table -->
         <?php if (isset($_POST['rowcols'], $_POST['numcolor'])) { ?>
@@ -136,17 +145,42 @@
                         echo "<tr>";
                         // loop over columns
                         for ($j = 0; $j <= $cols; $j++) {
-                            echo "<td>";
+                            $alpha = chr($j + 64);
+                            if($i == 0) {
+                                // Uper left cell isn't used so it doesn't get an id
+                                if($j == 0 && $i == 0) {
+                                    echo "<th>";
+                                }
+                                else {
+                                    //top row ids are column coordinates
+                                    echo "<th id='$alpha'>";
+                                }
+                            }
+                            else {
+                                if($j == 0) {
+                                    // Left column ids are row coordinates
+                                    echo "<td id='$i'>";
+                                }
+                                else {
+                                    // id is coordinates: (row,column)
+                                    echo "<td class='coordinate' id='($i,$alpha)'>";
+                                }
+                            }
                             if($i == 0){ //top row
                                 if($j == 0){ //upper-leftmost cell is empty
                                     echo "<p>&nbsp</p>";
                                 } else {
-                                    echo "<p>" . chr($j + 64) . "</p>";
+                                    echo "<p>$alpha</p>";
                                 }
                             } else if($j == 0) { // left col
-                                echo "<p>" . $i . "</p>";
+                                echo "<p>$i</p>";
                             }
-                            echo "</td>";
+                            if($i == 0) {
+                                echo "</th>";
+                            }
+                            else {
+                                echo "</td>";
+                            }
                         }
                         echo "</tr>";
                     }
@@ -154,6 +188,9 @@
             </table>
         </div>
         <?php } ?>
+        <script type="text/javascript">
+          createEvents();
+        </script>
 
         <!-- printable view button -->
         <?php if (isset($_POST['rowcols'], $_POST['numcolor'])) { ?>
