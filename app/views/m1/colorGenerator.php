@@ -4,11 +4,18 @@
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script type="text/javascript">
   // Function to change background color of cell based on radio button that's selected
-  function fillColors(event) {
+  function fillColors() {
       console.log("fillColors");
       console.log(this.id);
       //array that contains the coordinats. [0] is the row [1] is the column
       let coordinates = this.id.split(",");
+      let row = coordinates[0];
+      let column = coordinates[1];
+      let checkedClass = $("input[name=color-select]:checked", "#colors-form").attr("class");
+      console.log("checked class: " + checkedClass);
+      let color = $("select.checkedClass")[0];
+      console.log(color);
+      $("#''" + row + "," + column + "'").addClass("'"color"'");
   }
 
   $("#color-table").on("click", "td", fillColors);
@@ -91,12 +98,12 @@
                     if ($j == 0) {
                         echo "<td class=leftcol id=leftcol" . $leftColID . ">";
                         $leftColID++;
-                        echo "<input type='radio' id='radio" . $i . "' name='color-select'>";
                         echo "<form method=post>";
                         $datum = "color" . $i;
                         echo "<div id=color_select>";
+                        echo "<input type='radio' id='radio" . $i . "' class='table-form" . $i . "' name='color-select'>";
                         // This ugly thing is for getting the previously selected option. I set the value of the selectd option as the class to store it and use the value itself for updating
-                        echo "<select id=" . $datum . " class='select-color' onFocus=\"$(this).attr('class', $('option:selected', this).text());\" onChange=\"dupeCheck($(this).attr('class'), $(this).prop('value'), $(this).attr('id'), $(this).attr('id'))\">";
+                        echo "<select id=" . $datum . " class='select-color table-form" . $i . "' onFocus=\"$(this).attr('class', $('option:selected', this).text());\" onChange=\"dupeCheck($(this).attr('class'), $(this).prop('value'), $(this).attr('id'), $(this).attr('id'))\">";
                         array_push($datums, $datum);
                         $k = 0;
                         foreach ($optcolor as &$value) {
@@ -159,8 +166,8 @@
                                     echo "<p>$i</p>";
                                 }
                                 else {
-                                    // id is coordinates: (row,column)
-                                    echo "<td class='coordinate' id='($i,$alpha)'>";
+                                    // id is coordinates: row,column
+                                    echo "<td class='coordinate' id='$i,$alpha'>";
                                 }
                             }
                             if($i == 0) {
