@@ -152,7 +152,7 @@
         padding: 20px
     }
 
-    #colorstable {
+    .colorstable {
         width: 80%;
         margin: auto;
         align-content: center;
@@ -160,16 +160,21 @@
         border-collapse: collapse;
     }
 
-    #colorstable tr td {
+    .colorstable tr td {
         border: 2px solid #DE7846;
         text-align: center;
     }
 
-    #colorstable .leftcol {
+    .colorstable tr th {
+        border: 2px solid #DE7846;
+        text-align: center;
+    }
+
+    .colorstable .leftcol {
         width: 20%;
     }
 
-    #colorstable .rightcol {
+    .colorstable .rightcol {
         width: 80%;
     }
 
@@ -183,6 +188,11 @@
     }
 
     .table2 td {
+        height: 25px;
+        width: 25px;
+    }
+
+    .table2 th {
         height: 25px;
         width: 25px;
     }
@@ -213,6 +223,56 @@
         text-align: center;
         margin: 0 auto;
     }
+
+    .outline {
+      border: 2px solid red;
+    }
+
+    .enter-nums {
+      display: inline-block;
+      padding-right: 15px;
+    }
+
+    td > .red {
+      background-color: red;
+    }
+
+    td > .brown {
+      background-color: brown;
+    }
+
+    td > .orange {
+      background-color: orange;
+    }
+
+    td > .yellow {
+      background-color: yellow;
+    }
+
+    td > .green {
+      background-color: green;
+    }
+
+    td > .teal {
+      background-color: teal;
+    }
+
+    td > .grey {
+      background-color: grey;
+    }
+
+    td > .blue {
+      background-color: blue;
+    }
+
+    td > .purple {
+      background-color: purple;
+    }
+
+    td > .black {
+      background-color: black;
+    }
+
     </style>
 
 </head>
