@@ -15,7 +15,7 @@
       console.log("checked class: " + checkedClass);
       let color = $("select.checkedClass")[0];
       console.log(color);
-      $("#''" + row + "," + column + "'").addClass("'"color"'");
+      $("#'" + row + "," + column + "'").addClass("'" + color + "'");
   }
 
   $("#color-table").on("click", "td", fillColors);
