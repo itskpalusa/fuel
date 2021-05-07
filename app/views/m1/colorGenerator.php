@@ -27,7 +27,7 @@
         if($currColor == 'table-form0'){
             $(this).attr('style', 'background: red')
         } else if($currColor == 'table-form1') {
-            $(this).attr('style', 'background: brown')
+            $(this).attr('style', 'background: saddlebrown')
         } else if($currColor == 'table-form2') {
             $(this).attr('style', 'background: orange')
         } else if($currColor == 'table-form3') {
