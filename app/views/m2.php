@@ -299,7 +299,7 @@
 
     footer {
         background-color: #59D195;
-        bottom: 0;
+        bottom: -50px;
         left: 0;
         right: 0;
         padding: 6px;
@@ -397,7 +397,7 @@
 
 
     <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
-        <a class="navbar-brand" href="https://cs.colostate.edu:4444/~kpalusa/m1/">Goretex Professionals LLC<img
+        <a class="navbar-brand" href="https://cs.colostate.edu:4444/~kpalusa/m2/">Goretex Professionals LLC<img
                 src='https://i.pinimg.com/originals/ca/57/5b/ca575bc595713822b92880db4219881a.png' alt='logo'
                 width='32'></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
