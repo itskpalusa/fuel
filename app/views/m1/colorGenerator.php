@@ -19,6 +19,24 @@
   }
 
   $("#color-table").on("click", "td", fillColors);
+  // Allows radios to toggle and have only one at a time selected
+  $curr = $(this)
+  $(function() {
+      $('input[name="color-select"]').click(function() {
+        var $radio = $(this)
+        if($radio.prop('selected')){
+            $radio.prop('selected', false);
+            $radio.prop('checked', false)
+        } else{
+            $radio.prop('selected', true)
+            $radio.prop('checked', true)
+        }
+
+        $curr.prop('selected', false);
+        $curr.prop('checked', false);
+        $curr = $radio
+      });
+  });
 
   // In select tag, check if there's a change. Call this function with ID of the option that was selected
   function dupeCheck(oldOption, newOption, optionID, selectID) {
@@ -108,7 +126,7 @@
                         $k = 0;
                         foreach ($optcolor as &$value) {
                             if($k == 0) {
-                              echo "<option class='color-option' name=" . $value . " value=" . $value . " selected='selected'>" . $value . "</option>";
+                              echo "<option class='color-option' name=" . $value . " value=" . $value . " selected='selected' checked='checked'>" . $value . "</option>";
                             }
                             else {
                               echo "<option class='color-option' name=" . $value . " value=" . $value . ">" . $value . "</option>";
