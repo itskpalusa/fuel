@@ -18,7 +18,10 @@
       $("#'" + row + "," + column + "'").addClass("'" + color + "'");
   }
 
-  $("#color-table").on("click", "td", fillColors);
+  $(document).on("click", "td", function() {
+    console.log(":(");
+    fillColors;
+  });
 
   // In select tag, check if there's a change. Call this function with ID of the option that was selected
   function dupeCheck(oldOption, newOption, optionID, selectID) {
@@ -98,7 +101,7 @@
                     if ($j == 0) {
                         echo "<td class=leftcol id=leftcol" . $leftColID . ">";
                         $leftColID++;
-                        echo "<form method=post>";
+                        echo "<form method=post id='colors-form'>";
                         $datum = "color" . $i;
                         echo "<div id=color_select>";
                         echo "<input type='radio' id='radio" . $i . "' class='table-form" . $i . "' name='color-select'>";
