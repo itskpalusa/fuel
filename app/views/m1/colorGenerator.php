@@ -11,7 +11,64 @@
       let coordinates = this.id.split(",");
   }
 
+<<<<<<< HEAD
   $("#color-table").on("click", "td", fillColors);
+=======
+  $(function() {
+      $('.coordinate').click(function() {
+        //$coordinates = $(this).attr('id')
+        $row = $(this).attr('row')
+        $col = $(this).attr('col')
+        $toAdd = $('.right-' + $currColor)
+        $toAdd.append($col + $row + ", ")
+
+        if($currColor == 'table-form0'){
+            $(this).attr('style', 'background: red')
+        } else if($currColor == 'table-form1') {
+            $(this).attr('style', 'background: saddlebrown')
+        } else if($currColor == 'table-form2') {
+            $(this).attr('style', 'background: orange')
+        } else if($currColor == 'table-form3') {
+            $(this).attr('style', 'background: yellow')
+        } else if($currColor == 'table-form4') {
+            $(this).attr('style', 'background: green')
+        } else if($currColor == 'table-form5') {
+            $(this).attr('style', 'background: teal')
+        } else if($currColor == 'table-form6') {
+            $(this).attr('style', 'background: grey')
+        } else if($currColor == 'table-form7') {
+            $(this).attr('style', 'background: blue')
+        } else if($currColor == 'table-form8') {
+            $(this).attr('style', 'background: purple')
+        } else if($currColor == 'table-form9') {
+            $(this).attr('style', 'background: black')
+        }
+      });
+  });
+
+  // Allows radios to toggle and have only one at a time selected
+  $currRadio = $(this)
+  $(function() {
+      $('input[name="color-select"]').click(function() {
+        var $radio = $(this)
+        if($radio.prop('selected')){
+            $radio.prop('selected', false);
+            $radio.prop('checked', false)
+        } else{
+            $radio.prop('selected', true)
+            $radio.prop('checked', true)
+        }
+
+        if($currRadio.attr('class') != $radio.attr('class')){
+            $currRadio.prop('selected', false);
+            $currRadio.prop('checked', false);
+        }
+        $currRadio = $radio
+        $currColor = $radio.attr('class')
+      });
+  });
+
+>>>>>>> 5aaca332972b277c9b67d52315b3689f95e4c7c1
 
   // In select tag, check if there's a change. Call this function with ID of the option that was selected
   function dupeCheck(oldOption, newOption, optionID, selectID) {
@@ -115,7 +172,7 @@
                     else {
                         echo "<td class=rightcol id=rightcol" . $rightColID . ">";
                         $rightColID++;
-                        echo "<p>&nbsp</p>";
+                        echo "<p class='right-table-form" . $i . "'>&nbsp";
                     }
         ?>
         </select>
@@ -159,8 +216,14 @@
                                     echo "<p>$i</p>";
                                 }
                                 else {
+<<<<<<< HEAD
                                     // id is coordinates: (row,column)
                                     echo "<td class='coordinate' id='($i,$alpha)'>";
+=======
+                                    // id is coordinates: row,column
+                                    //echo "<td class='coordinate' id='$i,$alpha'>";
+                                    echo "<td class='coordinate' row=" . $i . " col=" . $alpha . ">";
+>>>>>>> 5aaca332972b277c9b67d52315b3689f95e4c7c1
                                 }
                             }
                             if($i == 0) {
