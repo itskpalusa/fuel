@@ -23,11 +23,13 @@
         //$coordinates = $(this).attr('id')
         $row = $(this).attr('row')
         $col = $(this).attr('col')
-        //$('.rightcol ' . $currColor).text($col . $row)
+        $toAdd = $('.right-' + $currColor)
+        $toAdd.append($col + $row + ", ")
+
         if($currColor == 'table-form0'){
             $(this).attr('style', 'background: red')
         } else if($currColor == 'table-form1') {
-            $(this).attr('style', 'background: brown')
+            $(this).attr('style', 'background: saddlebrown')
         } else if($currColor == 'table-form2') {
             $(this).attr('style', 'background: orange')
         } else if($currColor == 'table-form3') {
@@ -171,9 +173,9 @@
                         array_push($optcolor, $first);
                     }
                     else {
-                        echo "<td class=rightcol id=rightcol" . $rightColID . " class='table-form" . $i . "'>";
+                        echo "<td class=rightcol id=rightcol" . $rightColID . ">";
                         $rightColID++;
-                        echo "<p>&nbsp</p>";
+                        echo "<p class='right-table-form" . $i . "'>&nbsp";
                     }
         ?>
         </select>
@@ -220,7 +222,6 @@
                                     // id is coordinates: row,column
                                     //echo "<td class='coordinate' id='$i,$alpha'>";
                                     echo "<td class='coordinate' row=" . $i . " col=" . $alpha . ">";
-
                                 }
                             }
                             if($i == 0) {
