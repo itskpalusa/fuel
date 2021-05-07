@@ -8,20 +8,28 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
 
+ 
+
     <style>
     body {
         margin: auto;
         width: 100%;
     }
 
+ 
+
     .navbar-custom {
         background-color: 59D195;
     }
+
+ 
 
     nav {
         background-color: #59D195;
         width: 100%;
     }
+
+ 
 
     /*
     nav ul {
@@ -31,10 +39,14 @@
         padding: 0;
     }
 
+ 
+
     nav li {
         float: left;
         padding: 16px;
     }
+
+ 
 
     nav a {
         color: #F4F5EB;
@@ -47,9 +59,13 @@
         border-radius: 10px;
     }
 
+ 
+
     nav a:hover {
         background-color: #DE7846;
     } */
+
+ 
 
     header {
         color: #F4F5EB;
@@ -58,14 +74,20 @@
         text-align: right;
     }
 
+ 
+
     #welcome {
         color: #1CBC9D;
     }
+
+ 
 
     h1 {
         font-size: 36px;
         padding: 24px;
     }
+
+ 
 
     h2 {
         color: #BF4F50;
@@ -75,11 +97,17 @@
         text-align: justify;
     }
 
+ 
+
     #content {
         margin: auto;
         padding: 10px;
 
+ 
+
     }
+
+ 
 
     #contact {
         background-color: #1CBC9D;
@@ -88,13 +116,19 @@
         text-align: center;
     }
 
+ 
+
     #contact>* {
         padding: 16px;
     }
 
+ 
+
     #contact h1 {
         color: #F4F5EB;
     }
+
+ 
 
     input[type=email] {
         padding: 10px;
@@ -104,6 +138,8 @@
         border-radius: 10px;
         width: 80%;
     }
+
+ 
 
     input[type=submit] {
         background-color: #BF4F50;
@@ -116,9 +152,13 @@
         box-shadow: 0 5px #999;
       }
 
+ 
+
     input[type=submit]:hover {
         background-color: #DE7846;
     }
+
+ 
 
     input[type=submit]:active {
         background-color: #DE7846;
@@ -126,20 +166,28 @@
         box-shadow: 0 3px #666;
     }
 
+ 
+
     #members img {
         width: 280px;
         padding: 12px;
     }
+
+ 
 
     #column {
         float: inline-start;
         margin-right: 24px;
     }
 
+ 
+
     #person {
         margin-top: 56px;
         margin-right: 12px;
     }
+
+ 
 
     #bio {
         float: right;
@@ -148,9 +196,13 @@
         text-align: justify;
     }
 
+ 
+
     #color-generator form {
         padding: 20px
     }
+
+ 
 
     .colorstable {
         width: 80%;
@@ -160,42 +212,68 @@
         border-collapse: collapse;
     }
 
+ 
+
     .colorstable tr td {
         border: 2px solid #DE7846;
         text-align: center;
     }
+
+ 
 
     .colorstable tr th {
         border: 2px solid #DE7846;
         text-align: center;
     }
 
+ 
+
     .colorstable .leftcol {
         width: 20%;
     }
+
+ 
 
     .colorstable .rightcol {
         width: 80%;
     }
 
+ 
+
     #table2 {
-        margin-bottom: 20px
+        margin-bottom: 20px;
+        width: 80%;
+        align-content: center;
+        background-color: white;
+        border-collapse: collapse;
     }
+
+ 
 
     .table2 {
         height: 900px;
         width: 900px;
+        align-content: center;
+        background-color: white;
+        border-collapse: collapse;
+        padding-bottom: 25px;
     }
+
+ 
 
     .table2 td {
         height: 25px;
         width: 25px;
     }
 
+ 
+
     .table2 th {
         height: 25px;
         width: 25px;
     }
+
+ 
 
     #table2 p {
         color: #BF4F50;
@@ -204,14 +282,20 @@
         margin: 0;
     }
 
+ 
+
     #printButton {
         margin: 25px;
         left: 50%;
     }
 
+ 
+
     p {
         font-size: 16px;
     }
+
+ 
 
     footer {
         background-color: #59D195;
@@ -224,60 +308,96 @@
         margin: 0 auto;
     }
 
+ 
+
     .outline {
       border: 2px solid red;
     }
+
+ 
 
     .enter-nums {
       display: inline-block;
       padding-right: 15px;
     }
 
+ 
+
     td > .red {
       background-color: red;
     }
+
+ 
 
     td > .brown {
       background-color: brown;
     }
 
+ 
+
     td > .orange {
       background-color: orange;
     }
+
+ 
 
     td > .yellow {
       background-color: yellow;
     }
 
+ 
+
     td > .green {
       background-color: green;
     }
+
+ 
 
     td > .teal {
       background-color: teal;
     }
 
+ 
+
     td > .grey {
       background-color: grey;
     }
+
+ 
 
     td > .blue {
       background-color: blue;
     }
 
+ 
+
     td > .purple {
       background-color: purple;
     }
+
+ 
 
     td > .black {
       background-color: black;
     }
 
+    #printView {
+        filter: grayscale(1);
+    }
+
+ 
+
     </style>
+
+ 
 
 </head>
 
+ 
+
 <body>
+
+ 
 
     <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
         <a class="navbar-brand" href="https://cs.colostate.edu:4444/~kpalusa/m1/">Goretex Professionals LLC<img
@@ -290,24 +410,28 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="https://cs.colostate.edu:4444/~kpalusa/m1/">Home </a>
+                    <a class="nav-link" href="https://cs.colostate.edu:4444/~daknis/m1/">Home </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="https://cs.colostate.edu:4444/~kpalusa/m1/index/m1/about.php">About</a>
+                    <a class="nav-link" href="https://cs.colostate.edu:4444/~daknis/m1/index/m1/about.php">About</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link"
-                        href="https://cs.colostate.edu:4444/~kpalusa/m1/index/m1/colorGenerator.php">Color
+                        href="https://cs.colostate.edu:4444/~daknis/m1/index/m1/colorGenerator.php">Color
                         Generator</a>
                 </li>
             </ul>
         </div>
     </nav>
 
+ 
+
 
     <main>
         <?php echo $content ?>
     </main>
+
+ 
 
     <footer>Copyright "GoreTex Professionals LLC" 2021</footer>
 </body>

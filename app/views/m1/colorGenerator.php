@@ -4,72 +4,14 @@
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script type="text/javascript">
   // Function to change background color of cell based on radio button that's selected
-  function fillColors() {
+  function fillColors(event) {
       console.log("fillColors");
       console.log(this.id);
       //array that contains the coordinats. [0] is the row [1] is the column
       let coordinates = this.id.split(",");
-      let row = coordinates[0];
-      let column = coordinates[1];
-      let checkedClass = $("input[name=color-select]:checked", "#colors-form").attr("class");
-      console.log("checked class: " + checkedClass);
-      let color = $("select.checkedClass")[0];
-      console.log(color);
-      $("#'" + row + "," + column + "'").addClass("'" + color + "'");
   }
 
-  $(function() {
-      $('.coordinate').click(function() {
-        //$coordinates = $(this).attr('id')
-        $row = $(this).attr('row')
-        $col = $(this).attr('col')
-        //$('.rightcol ' . $currColor).text($col . $row)
-        if($currColor == 'table-form0'){
-            $(this).attr('style', 'background: red')
-        } else if($currColor == 'table-form1') {
-            $(this).attr('style', 'background: brown')
-        } else if($currColor == 'table-form2') {
-            $(this).attr('style', 'background: orange')
-        } else if($currColor == 'table-form3') {
-            $(this).attr('style', 'background: yellow')
-        } else if($currColor == 'table-form4') {
-            $(this).attr('style', 'background: green')
-        } else if($currColor == 'table-form5') {
-            $(this).attr('style', 'background: teal')
-        } else if($currColor == 'table-form6') {
-            $(this).attr('style', 'background: grey')
-        } else if($currColor == 'table-form7') {
-            $(this).attr('style', 'background: blue')
-        } else if($currColor == 'table-form8') {
-            $(this).attr('style', 'background: purple')
-        } else if($currColor == 'table-form9') {
-            $(this).attr('style', 'background: black')
-        }
-      });
-  });
-
-  // Allows radios to toggle and have only one at a time selected
-  $currRadio = $(this)
-  $(function() {
-      $('input[name="color-select"]').click(function() {
-        var $radio = $(this)
-        if($radio.prop('selected')){
-            $radio.prop('selected', false);
-            $radio.prop('checked', false)
-        } else{
-            $radio.prop('selected', true)
-            $radio.prop('checked', true)
-        }
-
-        if($currRadio.attr('class') != $radio.attr('class')){
-            $currRadio.prop('selected', false);
-            $currRadio.prop('checked', false);
-        }
-        $currRadio = $radio
-        $currColor = $radio.attr('class')
-      });
-  });
-
+  $("#color-table").on("click", "td", fillColors);
 
   // In select tag, check if there's a change. Call this function with ID of the option that was selected
   function dupeCheck(oldOption, newOption, optionID, selectID) {
@@ -149,12 +91,12 @@
                     if ($j == 0) {
                         echo "<td class=leftcol id=leftcol" . $leftColID . ">";
                         $leftColID++;
+                        echo "<input type='radio' id='radio" . $i . "' name='color-select'>";
                         echo "<form method=post>";
                         $datum = "color" . $i;
                         echo "<div id=color_select>";
-                        echo "<input type='radio' id='radio" . $i . "' class='table-form" . $i . "' name='color-select'>";
                         // This ugly thing is for getting the previously selected option. I set the value of the selectd option as the class to store it and use the value itself for updating
-                        echo "<select id=" . $datum . " class='select-color table-form" . $i . "' onFocus=\"$(this).attr('class', $('option:selected', this).text());\" onChange=\"dupeCheck($(this).attr('class'), $(this).prop('value'), $(this).attr('id'), $(this).attr('id'))\">";
+                        echo "<select id=" . $datum . " class='select-color' onFocus=\"$(this).attr('class', $('option:selected', this).text());\" onChange=\"dupeCheck($(this).attr('class'), $(this).prop('value'), $(this).attr('id'), $(this).attr('id'))\">";
                         array_push($datums, $datum);
                         $k = 0;
                         foreach ($optcolor as &$value) {
@@ -171,7 +113,7 @@
                         array_push($optcolor, $first);
                     }
                     else {
-                        echo "<td class=rightcol id=rightcol" . $rightColID . " class='table-form" . $i . "'>";
+                        echo "<td class=rightcol id=rightcol" . $rightColID . ">";
                         $rightColID++;
                         echo "<p>&nbsp</p>";
                     }
@@ -217,10 +159,8 @@
                                     echo "<p>$i</p>";
                                 }
                                 else {
-                                    // id is coordinates: row,column
-                                    //echo "<td class='coordinate' id='$i,$alpha'>";
-                                    echo "<td class='coordinate' row=" . $i . " col=" . $alpha . ">";
-
+                                    // id is coordinates: (row,column)
+                                    echo "<td class='coordinate' id='($i,$alpha)'>";
                                 }
                             }
                             if($i == 0) {
@@ -238,11 +178,12 @@
         <?php } ?>
 
         <!-- printable view button -->
+        <!-- printable view button -->
         <?php if (isset($_POST['rowcols'], $_POST['numcolor'])) { ?>
         <div id=printButton>
-            <form action='link to print view' method=get>
-                <input type=hidden id=rowcols name=rowcols value=$rows>
-                <input type=hidden id=numcolor name=numcolor value=$numcolor>
+            <form action='print.php' method=post>
+                <input type=hidden id=rowcols name=rowcols value="<?php echo $_POST['rowcols']; ?>">
+                <input type=hidden id=numcolor name=numcolor value="<?php echo $_POST['numcolor']; ?>">
                 <input type=submit value="Printable View">
             </form>
         </div>
