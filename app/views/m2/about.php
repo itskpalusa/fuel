@@ -49,9 +49,11 @@ the other pages on the site. -->
         <img src="https://i.ibb.co/M7hGCwP/Microsoft-Teams-image-1.jpg" alt="Tyler Barton" width="250" height="250">
     </div>
     <div class="col">
-        <p>Will is a 3rd year Computer Science student at CSU. He is currently a Web Design Intern for Coach
-            Ross Omniventures. In his free time he likes to run, play chess, frolic in the sun, and take
-            long walks on the beach.</p>
+        <p>Tyler is a student at Colorado State University studying computer science. He's interested in web development
+            in the field of computer science and will be an intern for Nextworld working on their UI team this summer.
+            In addition to computer science, Tyler is a member of the CSU Concert Band as a trombonist. One of his
+            favorite things to do in his free time is Rubik's Cubes. He also enjoys classic arcade games and spending
+            time outside.</p>
     </div>
 </div>
 
